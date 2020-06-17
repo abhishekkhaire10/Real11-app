@@ -226,15 +226,14 @@ def main():
         import joblib
         model = joblib.load('goal_model.sav')
         for plyr in player_dict.keys():
-        threshold_goals = .35
-        prediction_data = stats_mean_goals(captured_stats[plyr])
-        # try:
-        pred = model.predict_proba([prediction_data])
-        # except ValueError:
-        #     st.write('File not found')
-        #     continue
-        st.write('Probablity of Scoring: ',plyr)
-        st.write(round(pred[0][1],2)*100,'%')
+            prediction_data = stats_mean_goals(captured_stats[plyr])
+            # try:
+            pred = model.predict_proba([prediction_data])
+            # except ValueError:
+            #     st.write('File not found')
+            #     continue
+            st.write('Probablity of Scoring: ',plyr)
+            st.write(round(pred[0][1],2)*100,'%')
 
 
 # #For Assists
@@ -251,7 +250,7 @@ def main():
 #         st.write('Predicted passes for: ',plyr)
 #         st.write(int(pred[0]))
             
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()            
             
             
